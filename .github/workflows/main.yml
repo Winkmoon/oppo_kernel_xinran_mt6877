@@ -13,6 +13,8 @@ jobs:
       run: |
         sudo apt-get update
         sudo -E apt-get -y -qq install git make bc bison ccache openssl dos2unix zip kmod cpio flex libelf-dev curl libssl-dev libtfm-dev wget device-tree-compiler ca-certificates python3 python2 binutils binutils-aarch64-linux-gnu binutils-arm-linux-gnueabi
+        sudo apt update
+        sudo apt install subversion
         mkdir -p $GITHUB_WORKSPACE/kernel_workspace
 
     - name: 下载 Gcc编译器
@@ -44,7 +46,7 @@ jobs:
     - name: 下载内核模块
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
-        git clone https://github.com/oppo-source/android_kernel_modules_oppo_mt6877/tree/oppo/mt6877_r_12.0_oppo_reno7_se_5g/source/vendor vendor
+        svn export https://github.com/oppo-source/android_kernel_modules_oppo_mt6877/trunk/source/vendor vendor
         mkdir vnd
         cp -r vendor vnd/
         
