@@ -39,6 +39,16 @@ jobs:
         git clone --depth=1 https://github.com/Winkmoon/oppo_kernel_xinran_mt6877.git -b oppo/mt6877_r_12.0_oppo_reno7_se_5g android-kernel
         cd android-kernel
 
+
+
+    - name: 下载内核模块
+      run: |
+        cd $GITHUB_WORKSPACE/kernel_workspace
+        git clone https://github.com/oppo-source/android_kernel_modules_oppo_mt6877/tree/oppo/mt6877_r_12.0_oppo_reno7_se_5g/source/vendor vendor
+        mkdir vnd
+        cp -r vendor vnd/
+        
+
     - name: 集成KernelSU全分支支持
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
