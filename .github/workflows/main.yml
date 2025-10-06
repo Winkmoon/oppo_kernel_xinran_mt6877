@@ -84,7 +84,7 @@ jobs:
         export KBUILD_BUILD_HOST=Xinran_LOVE_Bai
         export KBUILD_BUILD_USER=kuan-@Xinran_StarBai
         make -s -j$(nproc --all) O=out ARCH=arm64 k6877v1_64_defconfig
-        make -j$(nproc --all) CC="ccache clang" O=out ARCH=arm64 CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE=aarch64-linux-android- CROSS_COMPILE_ARM32=arm-linux-androideabi-
+        make -j$(nproc --all) CC="ccache clang" O=out ARCH=arm64 CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE=aarch64-linux-android- CROSS_COMPILE_ARM32=arm-linux-androideabi- THINLTO=0
 
     - name: 制作Anykernel3卡刷包
       run: |
