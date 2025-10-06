@@ -35,6 +35,13 @@ jobs:
         mkdir clang-aosp
         git clone -q --depth=1 https://github.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-6443078 -b 10.0 clang-aosp
 
+
+    - name: 下载内核模块
+      run: |
+        cd $GITHUB_WORKSPACE/kernel_workspace
+        git clone --depth=1 https://github.com/Winkmoon/vendor.git -b Reno7se-a12
+
+
     - name: 下载内核源码
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
